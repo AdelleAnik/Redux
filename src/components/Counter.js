@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { counterActions } from '../store/index';
 
 import classes from './Counter.module.css';
 
@@ -8,21 +9,21 @@ const Counter = () => {
 
   //brings in the state value
   const counter = useSelector(state => state.counter);  //useSelector can be used multiple times to retrieve different pieces of data from state
-  
+
   const show = useSelector(state => state.showCounter);
 
   const incrementHandler = () => {
-    dispatch({ type: 'increment' }); //same type value as type on reducer
+    dispatch(counterActions.increment()); //execute the method ()!!
   };
   const increaseHandler = () => {
-    dispatch({ type: 'increase', amount: 10 }); //same name as the action payload on the reducer
+    dispatch(counterActions.increase(10));  //automatically created action objects which are { type: SOME_IDENTIFIER, payload: 10 }
   };
   const decrementHandler = () => {
-    dispatch({ type: 'decrement' });
+    dispatch(counterActions.decrement());
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: 'toggle' })
+    dispatch(counterActions.toggleCounter())
   };
 
   return (
