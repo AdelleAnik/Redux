@@ -8,9 +8,9 @@ const Counter = () => {
   const dispatch = useDispatch();
 
   //brings in the state value
-  const counter = useSelector(state => state.counter);  //useSelector can be used multiple times to retrieve different pieces of data from state
+  const counter = useSelector(state => state.counter.counter);  //useSelector can be used multiple times to retrieve different pieces of data from state
 
-  const show = useSelector(state => state.showCounter);
+  const show = useSelector(state => state.counter.showCounter);
 
   const incrementHandler = () => {
     dispatch(counterActions.increment()); //execute the method ()!!
