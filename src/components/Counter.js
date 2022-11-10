@@ -7,7 +7,8 @@ const Counter = () => {
   const dispatch = useDispatch();
 
   //brings in the state value
-  const counter = useSelector(state => state.counter);
+  const counter = useSelector(state => state.counter);  //useSelector can be used multiple times to retrieve different pieces of data from state
+  const show = useSelector(state => state.showCounter);
 
   const incrementHandler = () => {
     dispatch({ type: 'increment' }); //same type value as type on reducer
@@ -19,12 +20,14 @@ const Counter = () => {
     dispatch({ type: 'decrement' });
   };
 
-  const toggleCounterHandler = () => { };
+  const toggleCounterHandler = () => {
+    dispatch({ type: 'toggle' })
+  };
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      <div className={classes.value}>{counter}</div>
+      {show && <div className={classes.value}>{counter}</div>}
       <div>
         <button onClick={incrementHandler} >Increment</button>
         <button onClick={increaseHandler}>Increase by 10</button>
