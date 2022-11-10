@@ -8,6 +8,7 @@ const Counter = () => {
 
   //brings in the state value
   const counter = useSelector(state => state.counter);  //useSelector can be used multiple times to retrieve different pieces of data from state
+  
   const show = useSelector(state => state.showCounter);
 
   const incrementHandler = () => {
